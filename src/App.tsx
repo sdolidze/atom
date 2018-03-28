@@ -1,7 +1,7 @@
 import * as React from 'react';
 import './App.css';
-import { Counter } from './Counter';
-import { CounterFuncContainer } from './CounterFuncContainer';
+import { Counter } from './components/Counter';
+import { CounterFuncContainer } from './containers/CounterFuncContainer';
 
 const logo = require('./logo.svg');
 

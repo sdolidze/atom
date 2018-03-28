@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { CounterFunc } from './CounterFunc';
+import { CounterFunc } from '../components/CounterFunc';
 
 interface Props {
   step: number;
