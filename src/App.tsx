@@ -1,6 +1,7 @@
 import * as React from 'react';
 import './App.css';
 import { Counter } from './Counter';
+import { CounterFuncContainer } from './CounterFuncContainer';
 
 const logo = require('./logo.svg');
 
@@ -20,6 +21,7 @@ class App extends React.Component {
           <h1 className="App-title">Welcome to React</h1>
         </header>
         <Counter step={1} initialValue={5} />
+        <CounterFuncContainer step={2} initialValue={-5} />
       </div>
     );
   }
