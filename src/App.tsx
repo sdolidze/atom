@@ -1,5 +1,6 @@
 import * as React from 'react';
 import './App.css';
+import { ComicList } from './components/ComicList';
 import { Counter } from './components/Counter';
 import { CounterFuncContainer } from './containers/CounterFuncContainer';
 import CounterReduxContainer from './containers/CounterReduxContainer';
@@ -32,6 +33,7 @@ class App extends React.Component {
           <Counter step={1} initialValue={5} />
           <CounterFuncContainer step={2} initialValue={-5} />
           <CounterReduxContainer />
+          <ComicList />
         </main>
       </Container>
     );

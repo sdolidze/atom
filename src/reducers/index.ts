@@ -1,21 +1,10 @@
 import { combineReducers } from 'redux';
-import { DECREMENT, INCREMENT } from './../actions';
+import { comicReducer } from './comic';
+import { counterReducer } from './counter';
 
-let initialState = { value: 7, step: 4 };
-
-const counterReducer = (state = initialState, action: any) => {
-  switch (action.type) {
-    case INCREMENT:
-      return { ...state, value: state.value + state.step };
-    case DECREMENT:
-      return { ...state, value: state.value - state.step };
-    default:
-      return state;
-  }
-};
-
-const helloReducer = combineReducers({
+const rootReducer = combineReducers({
   counter: counterReducer,
+  comic: comicReducer,
 });
 
-export default helloReducer;
+export default rootReducer;
