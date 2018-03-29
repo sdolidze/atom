@@ -3,11 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@types/redux-promise-middleware": "^0.0.9",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-redux": "^5.0.7",
     "react-scripts-ts": "2.14.0",
-    "redux": "^3.7.2"
+    "redux": "^3.7.2",
+    "redux-promise-middleware": "^5.0.0"
   },
   "scripts": {
     "start": "react-scripts-ts start",

@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
 import { addComic, deleteComic } from '../actions';
+import { Box } from './Box';
 
 interface Props {
   comics: string[];
@@ -9,16 +10,6 @@ interface Props {
 }
 
 const styles: { [key: string]: React.CSSProperties } = {
-  div: {
-    backgroundColor: '#4CAF50',
-    color: '#FFF',
-    padding: '10px',
-    margin: '10px',
-    width: '200px',
-    borderRadius: '5px',
-    display: 'flex',
-    flexDirection: 'column',
-  },
   input: {
     marginTop: '10px',
   },
@@ -55,7 +46,7 @@ export const ComicList = connect(
   };
 
   return (
-    <div style={styles.div}>
+    <Box color="green">
       {comics.map((comic, i) => (
         <div key={i}>
           <span>{comic}</span>
@@ -74,6 +65,6 @@ export const ComicList = connect(
       <button style={styles.input} onClick={onClick}>
         Add
       </button>
-    </div>
+    </Box>
   );
 });
