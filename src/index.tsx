@@ -7,9 +7,13 @@ import './index.css';
 import rootReducer from './reducers';
 import registerServiceWorker from './registerServiceWorker';
 
-const store = createStore(rootReducer);
-
-console.log(store);
+/* tslint:disable:no-string-literal */
+const store = createStore(
+  rootReducer,
+  window['__REDUX_DEVTOOLS_EXTENSION__'] &&
+    window['__REDUX_DEVTOOLS_EXTENSION__'](),
+);
+/* tslint:enable:no-string-literal */
 
 ReactDOM.render(
   <Provider store={store}>
