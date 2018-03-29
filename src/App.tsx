@@ -6,25 +6,34 @@ import CounterReduxContainer from './containers/CounterReduxContainer';
 
 const logo = require('./logo.svg');
 
+const styles: { [key: string]: React.CSSProperties } = {
+  div: {
+    textAlign: 'center',
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+  },
+};
+
+const Container = ({ children }: { children: React.ReactNode }) => (
+  <div style={styles.div}>{children}</div>
+);
+
 class App extends React.Component {
   render() {
     return (
-      <div
-        className="App"
-        style={{
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-        }}
-      >
-        <header className="App-header">
+      <Container>
+        <header className="App-header" style={{ width: '100%' }}>
           <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
+          <h1 className="App-title">Sandro's React Playground</h1>
         </header>
-        <Counter step={1} initialValue={5} />
-        <CounterFuncContainer step={2} initialValue={-5} />
-        <CounterReduxContainer />
-      </div>
+
+        <main>
+          <Counter step={1} initialValue={5} />
+          <CounterFuncContainer step={2} initialValue={-5} />
+          <CounterReduxContainer />
+        </main>
+      </Container>
     );
   }
 }
