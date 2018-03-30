@@ -2,7 +2,7 @@ import * as React from 'react';
 import './App.css';
 import { ComicList } from './components/ComicList';
 import { Counter } from './components/Counter';
-import { Swimming } from './components/Swimming';
+import Swimming from './components/Swimming';
 import { CounterFuncContainer } from './containers/CounterFuncContainer';
 import CounterReduxContainer from './containers/CounterReduxContainer';
 
