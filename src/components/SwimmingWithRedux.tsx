@@ -1,7 +1,7 @@
 import * as React from 'react';
-import { connect } from 'react-redux';
 import { getSwimmingStyles } from '../actions';
 import { Box } from './Box';
+import { WithStore } from './WithStore';
 
 interface Props {
   onDownload: () => void;
@@ -10,21 +10,7 @@ interface Props {
   loading: boolean;
 }
 
-function mapStateToProps(state: any) {
-  return {
-    styles: state.swimming.styles,
-    error: state.swimming.error,
-    loading: state.swimming.loading,
-  };
-}
-
-function mapDispatchToProps(dispatch: any) {
-  return {
-    onDownload: () => dispatch(getSwimmingStyles()),
-  };
-}
-
-function SwimmingInner({ onDownload, styles, error, loading }: Props) {
+function Swimming({ onDownload, styles, error, loading }: Props) {
   return (
     <Box color="blue">
       Swimming (loading: {loading.toString()})
@@ -44,6 +30,15 @@ function SwimmingInner({ onDownload, styles, error, loading }: Props) {
   );
 }
 
-export const Swimming = connect(mapStateToProps, mapDispatchToProps)(
-  SwimmingInner,
+export const SwimmingWithRedux = () => (
+  <WithStore>
+    {(state: any, dispatch: any) => (
+      <Swimming
+        styles={state.swimming.styles}
+        error={state.swimming.error}
+        loading={state.swimming.loading}
+        onDownload={() => dispatch(getSwimmingStyles())}
+      />
+    )}
+  </WithStore>
 );

@@ -5,7 +5,7 @@ import { CounterWithApollo } from './components/CounterWithApollo';
 import { CounterWithRedux } from './components/CounterWithRedux';
 import { CounterWithState } from './components/CounterWithState';
 import { ExchangeRates } from './components/ExchangeRates';
-import { Swimming } from './components/Swimming';
+import { SwimmingWithRedux } from './components/SwimmingWithRedux';
 
 const logo = require('./logo.svg');
 
@@ -38,13 +38,13 @@ class App extends React.Component {
         <main style={styles.main}>
           <div>
             <CounterWithState step={1} initialValue={5} />
-            <CounterWithRedux step={2} initialValue={-5} />
+            <CounterWithRedux />
             <CounterWithApollo />
           </div>
 
           <div>
             <ComicList />
-            <Swimming />
+            <SwimmingWithRedux />
           </div>
 
           <div>

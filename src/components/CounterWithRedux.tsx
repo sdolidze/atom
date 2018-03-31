@@ -1,22 +1,18 @@
-import { connect } from 'react-redux';
+import * as React from 'react';
 import { decrement, increment } from './../actions';
 import { Counter } from './../components/Counter';
+import { WithStore } from './WithStore';
 
-const mapStateToProps = (state: any, ownProps: any) => {
-  return {
-    label: 'Redux',
-    color: 'blue' as 'blue',
-    value: state.counter.value,
-  };
-};
-
-const mapDispatchToProps = (dispatch: any, ownProps: any) => {
-  return {
-    onIncrement: () => dispatch(increment()),
-    onDecrement: () => dispatch(decrement()),
-  };
-};
-
-export const CounterWithRedux = connect(mapStateToProps, mapDispatchToProps)(
-  Counter,
+export const CounterWithRedux = () => (
+  <WithStore>
+    {(state: any, dispatch: any) => (
+      <Counter
+        label="Redux"
+        color="blue"
+        value={state.counter.value}
+        onIncrement={() => dispatch(increment())}
+        onDecrement={() => dispatch(decrement())}
+      />
+    )}
+  </WithStore>
 );
