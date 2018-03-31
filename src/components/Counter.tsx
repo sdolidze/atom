@@ -1,17 +1,17 @@
 import * as React from 'react';
+import { Box, Props as BoxProps } from './Box';
 
 interface Props {
-  step: number;
-  initialValue: number;
-}
-
-interface State {
+  label: string;
+  color: BoxProps['color'];
   value: number;
+  onIncrement?: () => void;
+  onDecrement?: () => void;
 }
 
 const styles = {
   div: {
-    backgroundColor: '#673AB7',
+    backgroundColor: '#3F51B5',
     color: '#FFF',
     padding: '10px',
     margin: '10px',
@@ -23,28 +23,21 @@ const styles = {
   },
 };
 
-export class Counter extends React.Component<Props, State> {
-  state = { value: this.props.initialValue };
-
-  onIncrement() {
-    this.setState({
-      value: this.state.value + this.props.step,
-    });
-  }
-
-  onDecrement() {
-    this.setState({
-      value: this.state.value - this.props.step,
-    });
-  }
-
-  render() {
-    return (
-      <div style={styles.div}>
-        <span style={styles.span}>Value: {this.state.value}</span>
-        <button onClick={() => this.onIncrement()}>+</button>
-        <button onClick={() => this.onDecrement()}>-</button>
+export function Counter({
+  value,
+  onIncrement,
+  onDecrement,
+  label,
+  color,
+}: Props) {
+  return (
+    <Box color={color}>
+      <h3>{label}</h3>
+      <div>
+        <span style={styles.span}>Value: {value}</span>
+        <button onClick={onIncrement}>+</button>
+        <button onClick={onDecrement}>-</button>
       </div>
-    );
-  }
+    </Box>
+  );
 }

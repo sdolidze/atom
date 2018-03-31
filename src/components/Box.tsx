@@ -18,13 +18,12 @@ const colors = {
   brown: '#795548',
 };
 
-export function Box({
-  children,
-  color,
-}: {
+export interface Props {
   children: React.ReactNode;
   color: keyof typeof colors;
-}) {
+}
+
+export function Box({ children, color }: Props) {
   return (
     <div style={{ ...style, backgroundColor: colors[color] }}>{children}</div>
   );

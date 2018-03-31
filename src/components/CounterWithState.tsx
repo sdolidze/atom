@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { CounterFunc } from '../components/CounterFunc';
+import { Counter } from './Counter';
 
 interface Props {
   step: number;
@@ -10,7 +10,7 @@ interface State {
   value: number;
 }
 
-export class CounterFuncContainer extends React.Component<Props, State> {
+export class CounterWithState extends React.Component<Props, State> {
   state = { value: this.props.initialValue };
 
   onIncrement() {
@@ -27,7 +27,9 @@ export class CounterFuncContainer extends React.Component<Props, State> {
 
   render() {
     return (
-      <CounterFunc
+      <Counter
+        label="State"
+        color="brown"
         value={this.state.value}
         onIncrement={() => this.onIncrement()}
         onDecrement={() => this.onDecrement()}

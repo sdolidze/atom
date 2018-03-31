@@ -1,9 +1,11 @@
 import { connect } from 'react-redux';
 import { decrement, increment } from './../actions';
-import { CounterFunc } from './../components/CounterFunc';
+import { Counter } from './../components/Counter';
 
 const mapStateToProps = (state: any, ownProps: any) => {
   return {
+    label: 'Redux',
+    color: 'blue' as 'blue',
     value: state.counter.value,
   };
 };
@@ -15,8 +17,6 @@ const mapDispatchToProps = (dispatch: any, ownProps: any) => {
   };
 };
 
-const CounterReduxContainer = connect(mapStateToProps, mapDispatchToProps)(
-  CounterFunc,
+export const CounterWithRedux = connect(mapStateToProps, mapDispatchToProps)(
+  Counter,
 );
-
-export default CounterReduxContainer;

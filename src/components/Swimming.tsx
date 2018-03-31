@@ -24,7 +24,7 @@ function mapDispatchToProps(dispatch: any) {
   };
 }
 
-function Swimming({ onDownload, styles, error, loading }: Props) {
+function SwimmingInner({ onDownload, styles, error, loading }: Props) {
   return (
     <Box color="blue">
       Swimming (loading: {loading.toString()})
@@ -44,4 +44,6 @@ function Swimming({ onDownload, styles, error, loading }: Props) {
   );
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Swimming);
+export const Swimming = connect(mapStateToProps, mapDispatchToProps)(
+  SwimmingInner,
+);
