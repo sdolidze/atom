@@ -12,7 +12,7 @@ const GET_EXHANGE_RATES = gql`
   }
 `;
 
-export const ExchangeRates = () => (
+export const ExchangeRatesWithApollo = () => (
   <Query query={GET_EXHANGE_RATES}>
     {({ loading, error, data }) => {
       return (
