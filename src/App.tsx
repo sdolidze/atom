@@ -2,6 +2,7 @@ import * as React from 'react';
 import './App.css';
 import { ComicList } from './components/ComicList';
 import { Counter } from './components/Counter';
+import { ExchangeRates } from './components/ExchangeRates';
 import Swimming from './components/Swimming';
 import { CounterFuncContainer } from './containers/CounterFuncContainer';
 import CounterReduxContainer from './containers/CounterReduxContainer';
@@ -14,6 +15,10 @@ const styles: { [key: string]: React.CSSProperties } = {
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
+  },
+  main: {
+    display: 'flex',
+    flexDirection: 'row',
   },
 };
 
@@ -30,12 +35,21 @@ class App extends React.Component {
           <h1 className="App-title">Sandro's React Playground</h1>
         </header>
 
-        <main>
-          <Counter step={1} initialValue={5} />
-          <CounterFuncContainer step={2} initialValue={-5} />
-          <CounterReduxContainer />
-          <ComicList />
-          <Swimming />
+        <main style={styles.main}>
+          <div>
+            <Counter step={1} initialValue={5} />
+            <CounterFuncContainer step={2} initialValue={-5} />
+            <CounterReduxContainer />
+          </div>
+
+          <div>
+            <ComicList />
+            <Swimming />
+          </div>
+
+          <div>
+            <ExchangeRates />
+          </div>
         </main>
       </Container>
     );

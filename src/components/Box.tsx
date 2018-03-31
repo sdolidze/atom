@@ -23,7 +23,7 @@ export function Box({
   color,
 }: {
   children: React.ReactNode;
-  color: string;
+  color: keyof typeof colors;
 }) {
   return (
     <div style={{ ...style, backgroundColor: colors[color] }}>{children}</div>

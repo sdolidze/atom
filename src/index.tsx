@@ -1,4 +1,6 @@
+import ApolloClient from 'apollo-boost';
 import * as React from 'react';
+import { ApolloProvider } from 'react-apollo';
 import * as ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { applyMiddleware, createStore } from 'redux';
@@ -19,10 +21,16 @@ const store = composeStoreWithMiddleware(
 );
 /* tslint:enable:no-string-literal */
 
+const client = new ApolloClient({
+  uri: 'https://w5xlvm3vzz.lp.gql.zone/graphql',
+});
+
 ReactDOM.render(
-  <Provider store={store}>
-    <App />
-  </Provider>,
+  <ApolloProvider client={client}>
+    <Provider store={store}>
+      <App />
+    </Provider>
+  </ApolloProvider>,
   document.getElementById('root') as HTMLElement,
 );
 registerServiceWorker();
