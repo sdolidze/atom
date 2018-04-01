@@ -14,7 +14,7 @@ export const typeDefs = `
 
 export const resolvers = {
   Query: {
-    version: () => '0.1.4',
+    version: () => '2.1.0',
   },
   Mutation: {
     saveCounterValue: function(

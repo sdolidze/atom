@@ -1,3 +1,5 @@
+import { api } from '../api';
+
 export const INCREMENT = 'INCREMENT';
 export const DECREMENT = 'DECREMENT';
 export const ADD_COMIC = 'ADD_COMIC';
@@ -27,11 +29,6 @@ export function deleteComic(index: number) {
 export function getSwimmingStyles() {
   return {
     type: GET_SWIMMING_STYLES,
-    payload: new Promise((res, rej) => {
-      setTimeout(
-        () => res(['Butterfly', 'Backstroke', 'Breaststroke', 'Front Crawl']),
-        1000,
-      );
-    }),
+    payload: api.getSwimmingStyles(),
   };
 }

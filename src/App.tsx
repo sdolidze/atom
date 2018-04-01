@@ -5,6 +5,7 @@ import { CounterWithApollo } from './components/CounterWithApollo';
 import { CounterWithRedux } from './components/CounterWithRedux';
 import { CounterWithState } from './components/CounterWithState';
 import { ExchangeRatesWithApollo } from './components/ExchangeRatesWithApollo';
+import { FilmListWithState } from './components/FilmListWithState';
 import { SwimmingWithRedux } from './components/SwimmingWithRedux';
 
 const logo = require('./logo.svg');
@@ -49,6 +50,7 @@ class App extends React.Component {
 
           <div>
             <ExchangeRatesWithApollo />
+            <FilmListWithState />
           </div>
         </main>
       </Container>

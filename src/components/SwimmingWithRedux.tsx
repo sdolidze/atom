@@ -13,10 +13,10 @@ interface Props {
 function Swimming({ onDownload, styles, error, loading }: Props) {
   return (
     <Box color="blue">
-      Swimming (loading: {loading.toString()})
+      <h3>Swimming {loading ? ' (loading)' : ''}</h3>
       <button
         style={{
-          marginTop: '10px',
+          margin: '10px 0',
         }}
         onClick={() => onDownload()}
       >
