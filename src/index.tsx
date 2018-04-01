@@ -6,6 +6,7 @@ import { Provider } from 'react-redux';
 import { applyMiddleware, createStore } from 'redux';
 import promiseMiddleware from 'redux-promise-middleware';
 import App from './App';
+import { defaults, resolvers, typeDefs } from './graphql';
 import './index.css';
 import rootReducer from './reducers';
 import registerServiceWorker from './registerServiceWorker';
@@ -24,10 +25,9 @@ const store = composeStoreWithMiddleware(
 const client = new ApolloClient({
   uri: 'https://w5xlvm3vzz.lp.gql.zone/graphql',
   clientState: {
-    resolvers: null,
-    defaults: {
-      counterValue: 10,
-    },
+    typeDefs,
+    resolvers,
+    defaults,
   },
 });
 
