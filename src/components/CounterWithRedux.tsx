@@ -7,7 +7,7 @@ export const CounterWithRedux = () => (
   <WithStore>
     {(state: any, dispatch: any) => (
       <Counter
-        label="Redux"
+        title="Redux"
         color="blue"
         value={state.counter.value}
         onIncrement={() => dispatch(increment())}

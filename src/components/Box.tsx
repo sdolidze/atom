@@ -19,12 +19,16 @@ const colors = {
 };
 
 export interface Props {
+  title: string;
   children: React.ReactNode;
   color: keyof typeof colors;
 }
 
-export function Box({ children, color }: Props) {
+export function Box({ title, children, color }: Props) {
   return (
-    <div style={{ ...style, backgroundColor: colors[color] }}>{children}</div>
+    <div style={{ ...style, backgroundColor: colors[color] }}>
+      <h3>{title}</h3>
+      {children}
+    </div>
   );
 }

@@ -1,11 +1,11 @@
 import * as React from 'react';
 import './App.css';
-import { ComicList } from './components/ComicList';
+import { ComediansWithRedux } from './components/ComediansWithRedux';
 import { CounterWithApollo } from './components/CounterWithApollo';
 import { CounterWithRedux } from './components/CounterWithRedux';
 import { CounterWithState } from './components/CounterWithState';
 import { ExchangeRatesWithApollo } from './components/ExchangeRatesWithApollo';
-import { FilmListWithState } from './components/FilmListWithState';
+import { StarWarsWithState } from './components/StarWarsWithState';
 import { SwimmingWithRedux } from './components/SwimmingWithRedux';
 
 const logo = require('./logo.svg');
@@ -44,13 +44,13 @@ class App extends React.Component {
           </div>
 
           <div>
-            <ComicList />
+            <ComediansWithRedux />
             <SwimmingWithRedux />
           </div>
 
           <div>
             <ExchangeRatesWithApollo />
-            <FilmListWithState />
+            <StarWarsWithState />
           </div>
         </main>
       </Container>

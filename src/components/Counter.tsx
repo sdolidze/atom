@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Box, Props as BoxProps } from './Box';
 
 interface Props {
-  label: string;
+  title: string;
   color: BoxProps['color'];
   value: number;
   onIncrement?: () => void;
@@ -27,12 +27,11 @@ export function Counter({
   value,
   onIncrement,
   onDecrement,
-  label,
+  title,
   color,
 }: Props) {
   return (
-    <Box color={color}>
-      <h3>{label}</h3>
+    <Box color={color} title={title}>
       <div>
         <span style={styles.span}>Value: {value}</span>
         <button onClick={onIncrement}>+</button>

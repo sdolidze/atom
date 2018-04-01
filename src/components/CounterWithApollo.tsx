@@ -21,7 +21,7 @@ export const CounterWithApollo = () => (
     {({ data, client }) => {
       return (
         <Counter
-          label={'Apollo ' + data.version}
+          title={'Apollo ' + data.version}
           color="purple"
           value={data.counterValue}
           onIncrement={() => {

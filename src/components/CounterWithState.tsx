@@ -28,7 +28,7 @@ export class CounterWithState extends React.Component<Props, State> {
   render() {
     return (
       <Counter
-        label="State"
+        title="State"
         color="brown"
         value={this.state.value}
         onIncrement={() => this.onIncrement()}

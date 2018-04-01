@@ -16,8 +16,7 @@ export const ExchangeRatesWithApollo = () => (
   <Query query={GET_EXHANGE_RATES}>
     {({ loading, error, data }) => {
       return (
-        <Box color="brown">
-          <h3>Exchange Rates</h3>
+        <Box color="brown" title="Exchange Rates">
           {(() => {
             if (loading) {
               return <p>Loading...</p>;

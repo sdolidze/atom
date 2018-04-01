@@ -18,7 +18,7 @@ const styles: { [key: string]: React.CSSProperties } = {
   },
 };
 
-export const ComicList = connect(
+export const ComediansWithRedux = connect(
   (state: any) => {
     return {
       comics: state.comic.comics,
@@ -46,7 +46,7 @@ export const ComicList = connect(
   };
 
   return (
-    <Box color="green">
+    <Box color="green" title="Comedians">
       {comics.map((comic, i) => (
         <div key={i}>
           <span>{comic}</span>

@@ -12,8 +12,7 @@ interface Props {
 
 function Swimming({ onDownload, styles, error, loading }: Props) {
   return (
-    <Box color="blue">
-      <h3>Swimming {loading ? ' (loading)' : ''}</h3>
+    <Box color="blue" title={'Swimming' + (loading ? ' (loading)' : '')}>
       <button
         style={{
           margin: '10px 0',
