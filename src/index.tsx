@@ -23,6 +23,12 @@ const store = composeStoreWithMiddleware(
 
 const client = new ApolloClient({
   uri: 'https://w5xlvm3vzz.lp.gql.zone/graphql',
+  clientState: {
+    resolvers: null,
+    defaults: {
+      counterValue: 10,
+    },
+  },
 });
 
 ReactDOM.render(

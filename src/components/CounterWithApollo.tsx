@@ -3,28 +3,25 @@ import * as React from 'react';
 import { Query } from 'react-apollo';
 import { Counter } from './Counter';
 
-const GET_EXHANGE_RATES = gql`
-  {
-    rates(currency: "USD") {
-      currency
-      rate
-    }
+const GET_COUNTER_VALUE = gql`
+  query ReadValue {
+    counterValue
   }
 `;
 
 export const CounterWithApollo = () => (
-  <Query query={GET_EXHANGE_RATES}>
-    {({ loading, error, data }) => {
+  <Query query={GET_COUNTER_VALUE}>
+    {({ data, client }) => {
       return (
         <Counter
           label="Apollo"
           color="purple"
-          value={0}
+          value={data.counterValue}
           onIncrement={() => {
-            console.log('inc');
+            client.writeData({ data: { counterValue: data.counterValue + 1 } });
           }}
           onDecrement={() => {
-            console.log('dec');
+            client.writeData({ data: { counterValue: data.counterValue - 1 } });
           }}
         />
       );
