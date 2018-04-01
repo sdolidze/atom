@@ -1,14 +1,7 @@
 import * as React from 'react';
 import './App.css';
-import { ComediansWithRedux } from './components/ComediansWithRedux';
-import { CounterWithApollo } from './components/CounterWithApollo';
-import { CounterWithRedux } from './components/CounterWithRedux';
-import { CounterWithState } from './components/CounterWithState';
-import { ExchangeRatesWithApollo } from './components/ExchangeRatesWithApollo';
-import { StarWarsWithState } from './components/StarWarsWithState';
-import { SwimmingWithRedux } from './components/SwimmingWithRedux';
-
-const logo = require('./logo.svg');
+import { Header } from './components/Header';
+import { Main } from './components/Main';
 
 const styles: { [key: string]: React.CSSProperties } = {
   div: {
@@ -17,43 +10,15 @@ const styles: { [key: string]: React.CSSProperties } = {
     flexDirection: 'column',
     alignItems: 'center',
   },
-  main: {
-    display: 'flex',
-    flexDirection: 'row',
-  },
 };
-
-const Container = ({ children }: { children: React.ReactNode }) => (
-  <div style={styles.div}>{children}</div>
-);
 
 class App extends React.Component {
   render() {
     return (
-      <Container>
-        <header className="App-header" style={{ width: '100%' }}>
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Sandro's React Playground</h1>
-        </header>
-
-        <main style={styles.main}>
-          <div>
-            <CounterWithState step={1} initialValue={5} />
-            <CounterWithRedux />
-            <CounterWithApollo />
-          </div>
-
-          <div>
-            <ComediansWithRedux />
-            <SwimmingWithRedux />
-          </div>
-
-          <div>
-            <ExchangeRatesWithApollo />
-            <StarWarsWithState />
-          </div>
-        </main>
-      </Container>
+      <div style={styles.div}>
+        <Header />
+        <Main />
+      </div>
     );
   }
 }

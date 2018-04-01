@@ -3,6 +3,7 @@ import * as React from 'react';
 import { ApolloProvider } from 'react-apollo';
 import * as ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
+import { BrowserRouter } from 'react-router-dom';
 import { applyMiddleware, createStore } from 'redux';
 import promiseMiddleware from 'redux-promise-middleware';
 import App from './App';
@@ -32,11 +33,13 @@ const client = new ApolloClient({
 });
 
 ReactDOM.render(
-  <ApolloProvider client={client}>
-    <Provider store={store}>
-      <App />
-    </Provider>
-  </ApolloProvider>,
+  <BrowserRouter>
+    <ApolloProvider client={client}>
+      <Provider store={store}>
+        <App />
+      </Provider>
+    </ApolloProvider>
+  </BrowserRouter>,
   document.getElementById('root') as HTMLElement,
 );
 registerServiceWorker();
