@@ -11,7 +11,6 @@ interface Props {
 
 const styles = {
   div: {
-    backgroundColor: '#3F51B5',
     color: '#FFF',
     padding: '10px',
     margin: '10px',
