@@ -1,10 +1,9 @@
 import * as React from 'react';
 
-const style: React.CSSProperties = {
+const baseStyle: React.CSSProperties = {
   color: '#FFF',
   padding: '10px',
   margin: '10px',
-  width: '200px',
   borderRadius: '5px',
   display: 'flex',
   flexDirection: 'column',
@@ -18,15 +17,27 @@ const colors = {
   brown: '#795548',
 };
 
+const sizes = {
+  small: '200px',
+  medium: '400px',
+  large: '800px',
+};
+
 export interface Props {
   title: string;
   children: React.ReactNode;
   color: keyof typeof colors;
+  size?: keyof typeof sizes;
 }
 
-export function Box({ title, children, color }: Props) {
+export function Box({ title, children, color, size = 'small' }: Props) {
+  const style = {
+    ...baseStyle,
+    backgroundColor: colors[color],
+    width: sizes[size],
+  };
   return (
-    <div style={{ ...style, backgroundColor: colors[color] }}>
+    <div style={style}>
       <h3>{title}</h3>
       {children}
     </div>

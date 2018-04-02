@@ -40,6 +40,9 @@ export function Header() {
         <Link to="/star-wars" style={styles.element}>
           Star Wars
         </Link>
+        <Link to="/forms" style={styles.element}>
+          Forms
+        </Link>
       </div>
     </header>
   );

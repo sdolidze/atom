@@ -5,6 +5,7 @@
   "dependencies": {
     "@types/prop-types": "^15.5.2",
     "@types/react-router-dom": "^4.2.6",
+    "@types/redux-form": "^7.2.2",
     "apollo-boost": "^0.1.4",
     "axios": "^0.18.0",
     "graphql": "0.13.0",
@@ -16,6 +17,7 @@
     "react-router-dom": "^4.2.2",
     "react-scripts-ts": "2.14.0",
     "redux": "^3.7.2",
+    "redux-form": "^7.3.0",
     "redux-promise-middleware": "^5.0.0"
   },
   "scripts": {
