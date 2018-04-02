@@ -1,7 +1,7 @@
 import * as React from 'react';
 import './App.css';
-import { Header } from './components/Header';
-import { Main } from './components/Main';
+import { Header } from './Header';
+import { Main } from './Main';
 
 const styles: { [key: string]: React.CSSProperties } = {
   div: {

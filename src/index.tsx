@@ -6,7 +6,7 @@ import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
 import { applyMiddleware, createStore } from 'redux';
 import promiseMiddleware from 'redux-promise-middleware';
-import App from './App';
+import App from './components/App';
 import { defaults, resolvers, typeDefs } from './graphql';
 import './index.css';
 import rootReducer from './reducers';
