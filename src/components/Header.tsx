@@ -25,14 +25,8 @@ export function Header() {
         <Link to="/" style={styles.element}>
           Home
         </Link>
-        <Link to="/counter/state" style={styles.element}>
-          Counter (State)
-        </Link>
-        <Link to="/counter/redux" style={styles.element}>
-          Counter (Redux)
-        </Link>
-        <Link to="/counter/apollo" style={styles.element}>
-          Counter (Apollo)
+        <Link to="/counter" style={styles.element}>
+          Counter
         </Link>
         <Link to="/comedians" style={styles.element}>
           Comedians
