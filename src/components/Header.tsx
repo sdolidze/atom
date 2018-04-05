@@ -43,6 +43,9 @@ export function Header() {
         <Link to="/forms" style={styles.element}>
           Forms
         </Link>
+        <Link to="/material" style={styles.element}>
+          Material
+        </Link>
       </div>
     </header>
   );

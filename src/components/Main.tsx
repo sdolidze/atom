@@ -4,6 +4,7 @@ import { ComediansWithRedux } from './ComediansWithRedux';
 import { CounterList } from './CounterList';
 import { ExchangeRatesWithApollo } from './ExchangeRatesWithApollo';
 import { Forms } from './Forms';
+import { Material } from './Material';
 import { StarWarsWithState } from './StarWarsWithState';
 import { SwimmingWithRedux } from './SwimmingWithRedux';
 import { Welcome } from './Welcome';
@@ -18,6 +19,7 @@ export function Main() {
       <Route path="/exchange-rates" component={ExchangeRatesWithApollo} />
       <Route path="/star-wars" component={StarWarsWithState} />
       <Route path="/forms" component={Forms} />
+      <Route path="/material" component={Material} />
     </Switch>
   );
 }
