@@ -3,7 +3,7 @@ import * as React from 'react';
 
 const styles = {
   div: {
-    margin: '20px',
+    margin: '10px',
   },
 };
 
