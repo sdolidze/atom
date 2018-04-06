@@ -72,6 +72,7 @@ const menuItems = [
   { name: 'Star Wars', icon: 'star_rate', url: '/star-wars' },
   { name: 'Forms', icon: 'description', url: '/forms' },
   { name: 'Material', icon: 'pets', url: '/material' },
+  { name: 'Login', icon: 'account_circle', url: '/login' },
 ];
 
 function ClippedDrawer({ classes }: any) {
