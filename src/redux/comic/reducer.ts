@@ -1,4 +1,4 @@
-import { RootAction } from '..';
+import { RootAction } from '../root-action';
 import { ADD_COMIC, DELETE_COMIC } from './actions';
 
 export interface ComicState {

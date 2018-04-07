@@ -1,4 +1,4 @@
-import { RootAction } from '..';
+import { RootAction } from '../root-action';
 import { DECREMENT, INCREMENT } from './actions';
 
 export interface CounterState {

@@ -1,5 +1,6 @@
 import * as React from 'react';
-import { connect } from 'react-redux';
+import { connect, Dispatch } from 'react-redux';
+import { RootState } from '../redux';
 import { comicActions } from '../redux/comic';
 import { Box } from './Box';
 
@@ -19,12 +20,12 @@ const styles: { [key: string]: React.CSSProperties } = {
 };
 
 export const ComicWithRedux = connect(
-  (state: any) => {
+  (state: RootState) => {
     return {
       comics: state.comic.comics,
     };
   },
-  (dispatch: any) => {
+  (dispatch: Dispatch<any>) => {
     return {
       onAdd: (comic: string) => dispatch(comicActions.addComic(comic)),
       onDelete: (index: number) => dispatch(comicActions.deleteComic(index)),
