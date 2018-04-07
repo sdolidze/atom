@@ -1,43 +1,13 @@
 import * as React from 'react';
-import { Dispatch } from 'redux';
-import { RootState } from '../redux';
-import { swimmingActions } from '../redux/swimming';
-import { Box } from './Box';
+import { swimmingActions, SwimmingState } from '../redux/swimming';
+import { Swimming } from './Swimming';
 import { WithStore } from './WithStore';
 
-interface Props {
-  onDownload: () => void;
-  styles: string[];
-  error: any;
-  loading: boolean;
-}
-
-function Swimming({ onDownload, styles, error, loading }: Props) {
-  return (
-    <Box color="blue" title={'Swimming' + (loading ? ' (loading)' : '')}>
-      <button
-        style={{
-          margin: '10px 0',
-        }}
-        onClick={() => onDownload()}
-      >
-        Download Swimming Styles
-      </button>
-      <div>{styles.map((style, i) => <div key={i}>{style}</div>)}</div>
-      {error ? (
-        <div style={{ color: 'red' }}> Error: {error.toString()}</div>
-      ) : null}
-    </Box>
-  );
-}
-
 export const SwimmingWithRedux = () => (
-  <WithStore>
-    {(state: RootState, dispatch: Dispatch<any>) => (
+  <WithStore selector={state => state.swimming}>
+    {(state: SwimmingState, dispatch) => (
       <Swimming
-        styles={state.swimming.styles}
-        error={state.swimming.error}
-        loading={state.swimming.loading}
+        {...state}
         onDownload={() => dispatch(swimmingActions.getSwimmingStyles())}
       />
     )}
