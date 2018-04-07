@@ -69,7 +69,6 @@ function Login({
             margin="normal"
           />
           <TextField
-            inputRef={el => (password = el)}
             id="password"
             label="Password"
             className={classes.textField}
