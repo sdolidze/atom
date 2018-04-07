@@ -4,7 +4,7 @@ import { ComicWithRedux } from './ComicWithRedux';
 import { CounterList } from './CounterList';
 import { ExchangeRatesWithApollo } from './ExchangeRatesWithApollo';
 import { Forms } from './Forms';
-import Login from './Login';
+import { LoginWithRedux } from './LoginWithRedux';
 import { Material } from './Material';
 import { StarWarsWithState } from './StarWarsWithState';
 import { SwimmingWithRedux } from './SwimmingWithRedux';
@@ -21,7 +21,7 @@ export function Main() {
       <Route path="/star-wars" component={StarWarsWithState} />
       <Route path="/forms" component={Forms} />
       <Route path="/material" component={Material} />
-      <Route path="/login" component={Login} />
+      <Route path="/login" component={LoginWithRedux} />
     </Switch>
   );
 }
