@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { getSwimmingStyles } from '../actions';
+import { swimmingActions } from '../redux/swimming';
 import { Box } from './Box';
 import { WithStore } from './WithStore';
 
@@ -36,7 +36,7 @@ export const SwimmingWithRedux = () => (
         styles={state.swimming.styles}
         error={state.swimming.error}
         loading={state.swimming.loading}
-        onDownload={() => dispatch(getSwimmingStyles())}
+        onDownload={() => dispatch(swimmingActions.getSwimmingStyles())}
       />
     )}
   </WithStore>

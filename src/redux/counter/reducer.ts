@@ -1,4 +1,5 @@
-import { DECREMENT, INCREMENT } from '../actions';
+import { RootAction } from '..';
+import { DECREMENT, INCREMENT } from './actions';
 
 export interface CounterState {
   value: number;
@@ -9,7 +10,7 @@ const initialState: CounterState = { value: 7, step: 4 };
 
 export function counterReducer(
   state: CounterState = initialState,
-  action: any,
+  action: RootAction,
 ) {
   switch (action.type) {
     case INCREMENT:

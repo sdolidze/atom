@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { decrement, increment } from './../actions';
+import { counterActions } from '../redux/counter';
 import { Counter } from './../components/Counter';
 import { WithStore } from './WithStore';
 
@@ -10,8 +10,8 @@ export const CounterWithRedux = () => (
         title="Redux"
         color="blue"
         value={state.counter.value}
-        onIncrement={() => dispatch(increment())}
-        onDecrement={() => dispatch(decrement())}
+        onIncrement={() => dispatch(counterActions.increment())}
+        onDecrement={() => dispatch(counterActions.decrement())}
       />
     )}
   </WithStore>

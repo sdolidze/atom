@@ -9,7 +9,7 @@ import promiseMiddleware from 'redux-promise-middleware';
 import App from './components/App';
 import { defaults, resolvers, typeDefs } from './graphql';
 import './index.css';
-import rootReducer from './reducers';
+import { rootReducer } from './redux';
 import registerServiceWorker from './registerServiceWorker';
 
 /* tslint:disable:no-string-literal */

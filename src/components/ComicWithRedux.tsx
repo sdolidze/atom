@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
-import { addComic, deleteComic } from '../actions';
+import { comicActions } from '../redux/comic';
 import { Box } from './Box';
 
 interface Props {
@@ -26,8 +26,8 @@ export const ComicWithRedux = connect(
   },
   (dispatch: any) => {
     return {
-      onAdd: (comic: string) => dispatch(addComic(comic)),
-      onDelete: (index: number) => dispatch(deleteComic(index)),
+      onAdd: (comic: string) => dispatch(comicActions.addComic(comic)),
+      onDelete: (index: number) => dispatch(comicActions.deleteComic(index)),
     };
   },
 )(({ comics, onAdd, onDelete }: Props) => {

@@ -1,8 +1,9 @@
+import { RootAction } from '../root-action';
 import {
   GET_SWIMMING_STYLES_PENDING,
   GET_SWIMMING_STYLES_FULFILLED,
   GET_SWIMMING_STYLES_REJECTED,
-} from '../actions';
+} from './actions';
 
 export interface SwimmingState {
   error: any;
@@ -18,7 +19,7 @@ const initialState: SwimmingState = {
 
 export function swimmingReducer(
   state: SwimmingState = initialState,
-  action: any,
+  action: RootAction,
 ): SwimmingState {
   switch (action.type) {
     case GET_SWIMMING_STYLES_PENDING:

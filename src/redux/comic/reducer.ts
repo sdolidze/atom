@@ -1,4 +1,5 @@
-import { ADD_COMIC, DELETE_COMIC } from '../actions';
+import { RootAction } from '..';
+import { ADD_COMIC, DELETE_COMIC } from './actions';
 
 export interface ComicState {
   comics: string[];
@@ -14,7 +15,10 @@ const initialState: ComicState = {
   ],
 };
 
-export function comicReducer(state: ComicState = initialState, action: any) {
+export function comicReducer(
+  state: ComicState = initialState,
+  action: RootAction,
+) {
   switch (action.type) {
     case ADD_COMIC:
       return { ...state, comics: [...state.comics, action.payload] };

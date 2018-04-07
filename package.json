@@ -17,7 +17,8 @@
     "redux": "^3.7.2",
     "redux-form": "^7.3.0",
     "redux-promise-middleware": "^5.0.0",
-    "reselect": "^3.0.1"
+    "reselect": "^3.0.1",
+    "utility-types": "^2.0.0"
   },
   "scripts": {
     "start": "react-scripts-ts start",
