@@ -66,7 +66,7 @@ const ListItemLink = withRouter(
 const menuItems = [
   { name: 'Home', icon: 'home', url: '/' },
   { name: 'Counter', icon: 'functions', url: '/counter' },
-  { name: 'Comedians', icon: 'face', url: '/comedians' },
+  { name: 'Comics', icon: 'face', url: '/comics' },
   { name: 'Swimming', icon: 'wb_sunny', url: '/swimming' },
   { name: 'Exchange Rates', icon: 'timeline', url: '/exchange-rates' },
   { name: 'Star Wars', icon: 'star_rate', url: '/star-wars' },

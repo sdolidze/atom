@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Route, Switch } from 'react-router';
-import { ComediansWithRedux } from './ComediansWithRedux';
+import { ComicWithRedux } from './ComicWithRedux';
 import { CounterList } from './CounterList';
 import { ExchangeRatesWithApollo } from './ExchangeRatesWithApollo';
 import { Forms } from './Forms';
@@ -15,7 +15,7 @@ export function Main() {
     <Switch>
       <Route exact={true} path="/" component={Welcome} />
       <Route path="/counter" component={CounterList} />
-      <Route path="/comedians" component={ComediansWithRedux} />
+      <Route path="/comics" component={ComicWithRedux} />
       <Route path="/swimming" component={SwimmingWithRedux} />
       <Route path="/exchange-rates" component={ExchangeRatesWithApollo} />
       <Route path="/star-wars" component={StarWarsWithState} />

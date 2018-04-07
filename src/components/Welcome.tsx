@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { ComediansWithRedux } from './ComediansWithRedux';
+import { ComicWithRedux } from './ComicWithRedux';
 import { CounterWithApollo } from './CounterWithApollo';
 import { CounterWithRedux } from './CounterWithRedux';
 import { CounterWithState } from './CounterWithState';
@@ -30,7 +30,7 @@ export function Welcome() {
       </div>
 
       <div>
-        <ComediansWithRedux />
+        <ComicWithRedux />
         <SwimmingWithRedux />
       </div>
 

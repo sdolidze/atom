@@ -1,10 +1,10 @@
 import { ADD_COMIC, DELETE_COMIC } from '../actions';
 
-interface State {
+export interface ComicState {
   comics: string[];
 }
 
-const initialState = {
+const initialState: ComicState = {
   comics: [
     'Louis C.K.',
     'George Carlin',
@@ -14,7 +14,7 @@ const initialState = {
   ],
 };
 
-export function comicReducer(state: State = initialState, action: any) {
+export function comicReducer(state: ComicState = initialState, action: any) {
   switch (action.type) {
     case ADD_COMIC:
       return { ...state, comics: [...state.comics, action.payload] };

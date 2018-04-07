@@ -4,22 +4,22 @@ import {
   GET_SWIMMING_STYLES_REJECTED,
 } from '../actions';
 
-interface State {
+export interface SwimmingState {
   error: any;
   loading: boolean;
   styles: string[];
 }
 
-const initialState: State = {
+const initialState: SwimmingState = {
   error: null,
   loading: false,
   styles: [],
 };
 
 export function swimmingReducer(
-  state: State = initialState,
+  state: SwimmingState = initialState,
   action: any,
-): State {
+): SwimmingState {
   switch (action.type) {
     case GET_SWIMMING_STYLES_PENDING:
       return { ...state, loading: true };
