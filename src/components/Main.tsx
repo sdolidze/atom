@@ -4,7 +4,7 @@ import { ComicWithRedux } from './ComicWithRedux';
 import { CounterList } from './CounterList';
 import { ExchangeRatesWithApollo } from './ExchangeRatesWithApollo';
 import { Forms } from './Forms';
-import { LoginWithRedux } from './LoginWithRedux';
+import LoginWithRedux from './LoginWithRedux';
 import { Material } from './Material';
 import { StarWarsWithState } from './StarWarsWithState';
 import { SwimmingWithRedux } from './SwimmingWithRedux';

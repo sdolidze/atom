@@ -1,3 +1,4 @@
+import { LinearProgress } from 'material-ui/Progress';
 import { withStyles } from 'material-ui/styles';
 import * as React from 'react';
 import {
@@ -11,11 +12,12 @@ import {
 export interface Props {
   classes?: any;
   username: string;
-  usernameChange: React.ChangeEventHandler<HTMLInputElement>;
-  passwordChange: React.ChangeEventHandler<HTMLInputElement>;
+  onUsernameChange: React.ChangeEventHandler<HTMLInputElement>;
+  onPasswordChange: React.ChangeEventHandler<HTMLInputElement>;
   password: string;
   onLogin: () => void;
   error: boolean;
+  loading: boolean;
 }
 
 const styles: StyleRulesCallback = theme => ({
@@ -28,6 +30,12 @@ const styles: StyleRulesCallback = theme => ({
     paddingBottom: 16,
     width: 400,
   }),
+  progress: {
+    marginTop: -16,
+    marginBottom: 16,
+    marginLeft: -24,
+    marginRight: -24,
+  },
   actions: {
     display: 'flex',
     justifyContent: 'flex-end',
@@ -40,16 +48,18 @@ const styles: StyleRulesCallback = theme => ({
 
 function Login({
   classes,
+  loading,
   onLogin,
   error,
   username,
   password,
-  usernameChange,
-  passwordChange,
+  onUsernameChange,
+  onPasswordChange,
 }: Props) {
   return (
     <div className={classes.root}>
       <Paper className={classes.paper} elevation={4}>
+        <LinearProgress className={classes.progress} hidden={!loading} />
         <Typography variant="headline" component="h3">
           Login
         </Typography>
@@ -64,7 +74,7 @@ function Login({
             label="Username"
             className={classes.textField}
             value={username}
-            onChange={usernameChange}
+            onChange={onUsernameChange}
             error={error}
             margin="normal"
           />
@@ -75,7 +85,7 @@ function Login({
             margin="normal"
             type="password"
             value={password}
-            onChange={passwordChange}
+            onChange={onPasswordChange}
             error={error}
             helperText={error && 'incorrect username or password'}
           />

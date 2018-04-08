@@ -1,28 +1,28 @@
 import * as React from 'react';
+import { authActions, AuthState } from '../redux/auth';
 import Login from './Login';
+import { WithStore } from './WithStore';
 
-export class LoginWithRedux extends React.Component {
-  state = { error: false, username: '', password: '' };
-
-  login() {
-    const { username, password } = this.state;
-    if (username !== 'sdolidze' || password !== 'barcelona') {
-      this.setState({ error: true });
-    } else {
-      this.setState({ error: false });
-    }
-  }
-
-  render() {
-    return (
-      <Login
-        username={this.state.username}
-        usernameChange={e => this.setState({ username: e.target.value })}
-        password={this.state.password}
-        passwordChange={e => this.setState({ password: e.target.value })}
-        onLogin={() => this.login()}
-        error={this.state.error}
-      />
-    );
-  }
+export default function LoginWithRedux() {
+  return (
+    <WithStore selector={state => state.auth}>
+      {(state: AuthState, dispatch) => (
+        <Login
+          username={state.username}
+          onUsernameChange={e =>
+            dispatch(authActions.update('username', e.target.value))
+          }
+          password={state.password}
+          onPasswordChange={e =>
+            dispatch(authActions.update('password', e.target.value))
+          }
+          onLogin={() =>
+            dispatch(authActions.login(state.username, state.password))
+          }
+          error={state.error}
+          loading={state.loading}
+        />
+      )}
+    </WithStore>
+  );
 }
