@@ -4,7 +4,7 @@ import { withStyles } from 'material-ui/styles';
 import Toolbar from 'material-ui/Toolbar';
 import Typography from 'material-ui/Typography';
 import * as React from 'react';
-import { MainWithRedux } from './MainWithRedux';
+import { Main } from './Main';
 import {
   Icon,
   IconButton,
@@ -73,25 +73,25 @@ function App({ classes, isLoggedIn, onPush }: any) {
         </Toolbar>
       </AppBar>
 
-      {/* {isLoggedIn ? ( */}
-      <Drawer variant="permanent" classes={{ paper: classes.drawerPaper }}>
-        <div className={classes.toolbar} />
-        <List>
-          {menuItems.map(({ name, icon, url }) => (
-            <ListItem button={true} onClick={() => onPush(url)}>
-              <ListItemIcon>
-                <Icon>{icon}</Icon>
-              </ListItemIcon>
-              <ListItemText primary={name} />
-            </ListItem>
-          ))}
-        </List>
-      </Drawer>
-      {/* ) : null} */}
+      {isLoggedIn ? (
+        <Drawer variant="permanent" classes={{ paper: classes.drawerPaper }}>
+          <div className={classes.toolbar} />
+          <List>
+            {menuItems.map(({ name, icon, url }) => (
+              <ListItem button={true} onClick={() => onPush(url)} key={name}>
+                <ListItemIcon>
+                  <Icon>{icon}</Icon>
+                </ListItemIcon>
+                <ListItemText primary={name} />
+              </ListItem>
+            ))}
+          </List>
+        </Drawer>
+      ) : null}
 
       <main className={classes.content}>
         <div className={classes.toolbar} />
-        <MainWithRedux />
+        <Main isLoggedIn={isLoggedIn} />
       </main>
     </div>
   );

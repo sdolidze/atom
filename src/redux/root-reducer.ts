@@ -1,4 +1,4 @@
-import { routerReducer } from 'react-router-redux';
+import { routerReducer, RouterState } from 'react-router-redux';
 import { combineReducers } from 'redux';
 import { FormState, reducer as formReducer } from 'redux-form';
 import { authReducer, AuthState } from './auth';
@@ -12,6 +12,7 @@ export interface RootState {
   swimming: SwimmingState;
   form: FormState;
   auth: AuthState;
+  router: RouterState;
 }
 
 export const rootReducer = combineReducers<RootState>({

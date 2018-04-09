@@ -1,11 +1,12 @@
 import * as React from 'react';
-import { Redirect, Route, Switch } from 'react-router';
+import { Route, Switch } from 'react-router';
 import { ComicWithRedux } from './ComicWithRedux';
 import { CounterList } from './CounterList';
 import { ExchangeRatesWithApollo } from './ExchangeRatesWithApollo';
 import { Forms } from './Forms';
-import LoginWithRedux from './LoginWithRedux';
+import { LoginWithRedux } from './LoginWithRedux';
 import { Material } from './Material';
+import { privateRoute } from './privateRoute';
 import { StarWarsWithState } from './StarWarsWithState';
 import { SwimmingWithRedux } from './SwimmingWithRedux';
 import { Welcome } from './Welcome';
@@ -14,29 +15,11 @@ export interface MainProps {
   isLoggedIn: boolean;
 }
 
-const privateRouteFactory = (isLoggedIn: boolean) => ({
-  component,
-  ...rest
-}: {
-  path?: string;
-  component: React.ComponentType<any>;
-}) => {
-  const Component = component;
-  return (
-    <Route
-      {...rest}
-      render={props =>
-        isLoggedIn ? <Component {...props} /> : <Redirect to="/login" />
-      }
-    />
-  );
-};
-
 export function Main({ isLoggedIn }: MainProps) {
-  const PrivateRoute = privateRouteFactory(isLoggedIn);
+  const PrivateRoute = privateRoute(isLoggedIn);
   return (
     <Switch>
-      <Route exact={true} path="/" component={Welcome} />
+      <PrivateRoute exact={true} path="/" component={Welcome} />
       <PrivateRoute path="/counter" component={CounterList} />
       <PrivateRoute path="/comics" component={ComicWithRedux} />
       <PrivateRoute path="/swimming" component={SwimmingWithRedux} />

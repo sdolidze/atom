@@ -3,7 +3,7 @@ import { authActions, AuthState } from '../redux/auth';
 import Login from './Login';
 import { WithStore } from './WithStore';
 
-export default function LoginWithRedux() {
+export function LoginWithRedux() {
   return (
     <WithStore selector={state => state.auth}>
       {(state: AuthState, dispatch) => (
