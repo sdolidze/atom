@@ -1,3 +1,4 @@
+import { routerReducer } from 'react-router-redux';
 import { combineReducers } from 'redux';
 import { FormState, reducer as formReducer } from 'redux-form';
 import { authReducer, AuthState } from './auth';
@@ -19,4 +20,5 @@ export const rootReducer = combineReducers<RootState>({
   swimming: swimmingReducer,
   form: formReducer,
   auth: authReducer,
+  router: routerReducer,
 });

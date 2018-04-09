@@ -1,9 +1,10 @@
 import ApolloClient from 'apollo-boost';
+import createHistory from 'history/createBrowserHistory';
 import * as React from 'react';
 import { ApolloProvider } from 'react-apollo';
 import * as ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import { BrowserRouter } from 'react-router-dom';
+import { ConnectedRouter, routerMiddleware } from 'react-router-redux';
 import { applyMiddleware, createStore } from 'redux';
 import promiseMiddleware from 'redux-promise-middleware';
 import { AppWithRedux } from './components/AppWithRedux';
@@ -12,10 +13,12 @@ import './index.css';
 import { rootReducer } from './redux';
 import registerServiceWorker from './registerServiceWorker';
 
+const history = createHistory();
+
+const middleware = [promiseMiddleware(), routerMiddleware(history)];
+
 /* tslint:disable:no-string-literal */
-const composeStoreWithMiddleware = applyMiddleware(promiseMiddleware())(
-  createStore,
-);
+const composeStoreWithMiddleware = applyMiddleware(...middleware)(createStore);
 const store = composeStoreWithMiddleware(
   rootReducer,
   window['__REDUX_DEVTOOLS_EXTENSION__'] &&
@@ -33,13 +36,13 @@ const client = new ApolloClient({
 });
 
 ReactDOM.render(
-  <BrowserRouter>
-    <ApolloProvider client={client}>
-      <Provider store={store}>
+  <Provider store={store}>
+    <ConnectedRouter history={history}>
+      <ApolloProvider client={client}>
         <AppWithRedux />
-      </Provider>
-    </ApolloProvider>
-  </BrowserRouter>,
+      </ApolloProvider>
+    </ConnectedRouter>
+  </Provider>,
   document.getElementById('root') as HTMLElement,
 );
 registerServiceWorker();

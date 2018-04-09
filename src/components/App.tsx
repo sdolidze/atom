@@ -4,7 +4,6 @@ import { withStyles } from 'material-ui/styles';
 import Toolbar from 'material-ui/Toolbar';
 import Typography from 'material-ui/Typography';
 import * as React from 'react';
-import { RouteComponentProps, withRouter } from 'react-router-dom';
 import { MainWithRedux } from './MainWithRedux';
 import {
   Icon,
@@ -44,23 +43,6 @@ const styles: StyleRulesCallback = theme => ({
   menuButton: {},
 });
 
-type ListItemLinkProps = { url: string; icon: string; name: string };
-const ListItemLink = withRouter(
-  ({
-    history,
-    url,
-    icon,
-    name,
-  }: RouteComponentProps<any> & ListItemLinkProps) => (
-    <ListItem button={true} onClick={() => history.push(url)}>
-      <ListItemIcon>
-        <Icon>{icon}</Icon>
-      </ListItemIcon>
-      <ListItemText primary={name} />
-    </ListItem>
-  ),
-);
-
 const menuItems = [
   { name: 'Home', icon: 'home', url: '/' },
   { name: 'Counter', icon: 'functions', url: '/counter' },
@@ -73,7 +55,7 @@ const menuItems = [
   { name: 'Login', icon: 'account_circle', url: '/login' },
 ];
 
-function App({ classes, isLoggedIn }: any) {
+function App({ classes, isLoggedIn, onPush }: any) {
   return (
     <div className={classes.root}>
       <AppBar position="absolute" className={classes.appBar}>
@@ -91,16 +73,21 @@ function App({ classes, isLoggedIn }: any) {
         </Toolbar>
       </AppBar>
 
-      {isLoggedIn ? (
-        <Drawer variant="permanent" classes={{ paper: classes.drawerPaper }}>
-          <div className={classes.toolbar} />
-          <List>
-            {menuItems.map(props => (
-              <ListItemLink {...props} key={props.name} />
-            ))}
-          </List>
-        </Drawer>
-      ) : null}
+      {/* {isLoggedIn ? ( */}
+      <Drawer variant="permanent" classes={{ paper: classes.drawerPaper }}>
+        <div className={classes.toolbar} />
+        <List>
+          {menuItems.map(({ name, icon, url }) => (
+            <ListItem button={true} onClick={() => onPush(url)}>
+              <ListItemIcon>
+                <Icon>{icon}</Icon>
+              </ListItemIcon>
+              <ListItemText primary={name} />
+            </ListItem>
+          ))}
+        </List>
+      </Drawer>
+      {/* ) : null} */}
 
       <main className={classes.content}>
         <div className={classes.toolbar} />
