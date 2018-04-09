@@ -21,6 +21,7 @@ export default function LoginWithRedux() {
           }
           error={state.error}
           loading={state.loading}
+          isLoggedIn={state.isLoggedIn}
         />
       )}
     </WithStore>

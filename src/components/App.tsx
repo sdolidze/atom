@@ -5,7 +5,7 @@ import Toolbar from 'material-ui/Toolbar';
 import Typography from 'material-ui/Typography';
 import * as React from 'react';
 import { RouteComponentProps, withRouter } from 'react-router-dom';
-import { Main } from './Main';
+import { MainWithRedux } from './MainWithRedux';
 import {
   Icon,
   IconButton,
@@ -15,8 +15,6 @@ import {
   ListItemText,
   StyleRulesCallback,
 } from 'material-ui';
-
-// import List from 'material-ui/List';
 
 const drawerWidth = 240;
 
@@ -75,7 +73,7 @@ const menuItems = [
   { name: 'Login', icon: 'account_circle', url: '/login' },
 ];
 
-function ClippedDrawer({ classes }: any) {
+function App({ classes, isLoggedIn }: any) {
   return (
     <div className={classes.root}>
       <AppBar position="absolute" className={classes.appBar}>
@@ -93,19 +91,23 @@ function ClippedDrawer({ classes }: any) {
         </Toolbar>
       </AppBar>
 
-      <Drawer variant="permanent" classes={{ paper: classes.drawerPaper }}>
-        <div className={classes.toolbar} />
-        <List>
-          {menuItems.map(props => <ListItemLink {...props} key={props.name} />)}
-        </List>
-      </Drawer>
+      {isLoggedIn ? (
+        <Drawer variant="permanent" classes={{ paper: classes.drawerPaper }}>
+          <div className={classes.toolbar} />
+          <List>
+            {menuItems.map(props => (
+              <ListItemLink {...props} key={props.name} />
+            ))}
+          </List>
+        </Drawer>
+      ) : null}
 
       <main className={classes.content}>
         <div className={classes.toolbar} />
-        <Main />
+        <MainWithRedux />
       </main>
     </div>
   );
 }
 
-export default withStyles(styles)(ClippedDrawer);
+export default withStyles(styles)(App);

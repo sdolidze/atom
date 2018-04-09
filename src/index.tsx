@@ -6,7 +6,7 @@ import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
 import { applyMiddleware, createStore } from 'redux';
 import promiseMiddleware from 'redux-promise-middleware';
-import App from './components/App';
+import { AppWithRedux } from './components/AppWithRedux';
 import { defaults, resolvers, typeDefs } from './graphql';
 import './index.css';
 import { rootReducer } from './redux';
@@ -36,7 +36,7 @@ ReactDOM.render(
   <BrowserRouter>
     <ApolloProvider client={client}>
       <Provider store={store}>
-        <App />
+        <AppWithRedux />
       </Provider>
     </ApolloProvider>
   </BrowserRouter>,

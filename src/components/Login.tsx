@@ -1,6 +1,7 @@
 import { LinearProgress } from 'material-ui/Progress';
 import { withStyles } from 'material-ui/styles';
 import * as React from 'react';
+import { Redirect } from 'react-router';
 import {
   Button,
   Paper,
@@ -18,6 +19,7 @@ export interface Props {
   onLogin: () => void;
   error: boolean;
   loading: boolean;
+  isLoggedIn: boolean;
 }
 
 const styles: StyleRulesCallback = theme => ({
@@ -55,7 +57,11 @@ function Login({
   password,
   onUsernameChange,
   onPasswordChange,
+  isLoggedIn,
 }: Props) {
+  if (isLoggedIn) {
+    return <Redirect to="/" />;
+  }
   return (
     <div className={classes.root}>
       <Paper className={classes.paper} elevation={4}>
