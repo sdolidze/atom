@@ -13,6 +13,7 @@ import {
   ListItemIcon,
   ListItemText,
   StyleRulesCallback,
+  Button,
 } from 'material-ui';
 
 const drawerWidth = 240;
@@ -39,7 +40,11 @@ const styles: StyleRulesCallback = theme => ({
     padding: theme.spacing.unit * 3,
     minWidth: 0, // So the Typography noWrap works
   },
-  toolbar: theme.mixins.toolbar,
+  toolbar: {
+    ...theme.mixins.toolbar,
+    display: 'flex',
+    justifyContent: 'space-between',
+  },
   menuButton: {},
 });
 
@@ -55,11 +60,18 @@ const menuItems = [
   { name: 'Login', icon: 'account_circle', url: '/login' },
 ];
 
-function App({ classes, isLoggedIn, onPush }: any) {
+function App({
+  classes,
+  isLoggedIn,
+  name: profileName,
+  onPush,
+  onLogin,
+  onLogout,
+}: any) {
   return (
     <div className={classes.root}>
       <AppBar position="absolute" className={classes.appBar}>
-        <Toolbar>
+        <Toolbar className={classes.toolbar}>
           <IconButton
             className={classes.menuButton}
             color="inherit"
@@ -70,6 +82,21 @@ function App({ classes, isLoggedIn, onPush }: any) {
           <Typography variant="title" color="inherit" noWrap={true}>
             Sandro's React Playground
           </Typography>
+
+          {isLoggedIn ? (
+            <Button
+              onClick={onLogout}
+              variant="raised"
+              classes={classes.logout}
+            >
+              <Icon>account_box</Icon>
+              {profileName}
+            </Button>
+          ) : (
+            <Button onClick={onLogin} variant="raised" classes={classes.logout}>
+              Login
+            </Button>
+          )}
         </Toolbar>
       </AppBar>
 

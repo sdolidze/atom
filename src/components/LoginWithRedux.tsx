@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { authActions, AuthState } from '../redux/auth';
+import { AuthState, login, update } from '../redux/auth';
 import Login from './Login';
 import { WithStore } from './WithStore';
 
@@ -9,19 +9,13 @@ export function LoginWithRedux() {
       {(state: AuthState, dispatch) => (
         <Login
           username={state.username}
-          onUsernameChange={e =>
-            dispatch(authActions.update('username', e.target.value))
-          }
+          onUsernameChange={e => dispatch(update('username', e.target.value))}
           password={state.password}
-          onPasswordChange={e =>
-            dispatch(authActions.update('password', e.target.value))
-          }
-          onLogin={() =>
-            dispatch(authActions.login(state.username, state.password))
-          }
+          onPasswordChange={e => dispatch(update('password', e.target.value))}
+          onLogin={() => dispatch(login(state.username, state.password))}
           error={state.error}
           loading={state.loading}
-          isLoggedIn={state.isLoggedIn}
+          isLoggedIn={state.user != null}
         />
       )}
     </WithStore>

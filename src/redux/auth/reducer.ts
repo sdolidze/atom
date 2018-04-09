@@ -4,20 +4,27 @@ import {
   LOGIN_PENDING,
   LOGIN_FULFILLED,
   LOGIN_REJECTED,
+  LOGOUT,
 } from './actions';
 
 export interface AuthState {
   username: string;
   password: string;
-  isLoggedIn: boolean;
   loading: boolean;
   error: boolean;
+  user: User | null;
+}
+
+export interface User {
+  username: string;
+  firstName: string;
+  lastName: string;
 }
 
 const initialState: AuthState = {
   username: '',
   password: '',
-  isLoggedIn: false,
+  user: null,
   loading: false,
   error: false,
 };
@@ -30,11 +37,18 @@ export function authReducer(
     case LOGIN_PENDING:
       return { ...state, error: false, loading: true };
     case LOGIN_FULFILLED:
-      return { ...state, isLoggedIn: true, loading: false };
+      const user: User = {
+        username: 'sdolidze',
+        firstName: 'Sandro',
+        lastName: 'Dolidze',
+      };
+      return { ...state, user, loading: false };
     case LOGIN_REJECTED:
       return { ...state, error: true, loading: false };
     case UPDATE:
       return { ...state, [action.payload.field]: action.payload.value };
+    case LOGOUT:
+      return { ...state, user: null };
     default:
       return state;
   }
