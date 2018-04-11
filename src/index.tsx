@@ -50,13 +50,13 @@ const client = new ApolloClient({
 
 ReactDOM.render(
   <Provider store={store}>
-    <ConnectedRouter history={history}>
-      <ApolloProvider client={client}>
-        <PersistGate loading={null} persistor={persistor}>
+    <PersistGate loading={null} persistor={persistor}>
+      <ConnectedRouter history={history}>
+        <ApolloProvider client={client}>
           <AppWithRedux />
-        </PersistGate>
-      </ApolloProvider>
-    </ConnectedRouter>
+        </ApolloProvider>
+      </ConnectedRouter>
+    </PersistGate>
   </Provider>,
   document.getElementById('root') as HTMLElement,
 );
